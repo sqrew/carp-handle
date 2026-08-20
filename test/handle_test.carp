@@ -4,15 +4,15 @@
 (use Handle)
 
 (deftest handle-test
-  (let [h1 (the (Handle Int) (Handle.init (Uint64.from-long 10l) (Uint64.from-long 1l)))
-        h2 (the (Handle Int) (Handle.init (Uint64.from-long 10l) (Uint64.from-long 1l)))
-        h3 (the (Handle Int) (Handle.init (Uint64.from-long 10l) (Uint64.from-long 2l)))
-        h4 (the (Handle Int) (Handle.init (Uint64.from-long 11l) (Uint64.from-long 1l)))
+  (let [h1 (the (Handle Int) (Handle.init (Uint64.from-long 10l) (Uint32.from-long 1l)))
+        h2 (the (Handle Int) (Handle.init (Uint64.from-long 10l) (Uint32.from-long 1l)))
+        h3 (the (Handle Int) (Handle.init (Uint64.from-long 10l) (Uint32.from-long 2l)))
+        h4 (the (Handle Int) (Handle.init (Uint64.from-long 11l) (Uint32.from-long 1l)))
         nul (the (Handle Int) (Handle.null))
         state (Test.State.init 0 0)]
     (do
       (set! state (assert-equal &state (Uint64.from-long 10l) (Handle.index &h1) "Index is correct"))
-      (set! state (assert-equal &state (Uint64.from-long 1l) (Handle.generation &h1) "Generation is correct"))
+      (set! state (assert-equal &state (Uint32.from-long 1l) (Handle.generation &h1) "Generation is correct"))
       
       (set! state (assert-true &state (= &h1 &h2) "Handles with same index/gen are equal"))
       (set! state (assert-false &state (= &h1 &h3) "Handles with different gen are not equal"))
