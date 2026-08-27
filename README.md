@@ -28,20 +28,9 @@ Add this to your project by loading `handle.carp`.
 (use Handle)
 ```
 
-## Usage
+## Examples
 
-```clojure
-(use Handle)
-
-(deftype Entity [])
-
-(let [h (Handle.init 10un 1un)]
-  (do
-    (IO.println &(str (Handle.index &h)))      ; 10
-    (IO.println &(str (Handle.generation &h))) ; 1
-    (IO.println &(str (Handle.not-null? &h)))  ; true
-    ))
-```
+See [examples.md](examples.md) for usage examples.
 
 ## Running Tests
 
